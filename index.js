@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
-const mongoose=require('mongoose')
+const mongoose=require('mongoose');
+const userModel = require('./model/user.model');
+const teacherModel = require('./model/teacher.model');
+const { signin, signup, allUser, dbUser, register } = require('./controllers/autentication.controller');
+const { records, deletebyid, editForm, results, edit } = require('./controllers/dashboard.controller');
 require("dotenv").config();
+const userRouter = require("./router/auth.router");
+
 
 const port = process.env.port;
 const DBURI = process.env.mongoDB_URI;
@@ -9,6 +15,7 @@ const DBURI = process.env.mongoDB_URI;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use("/auth", userRouter)
 
 
 const schoolUser =[
@@ -29,7 +36,8 @@ const schoolUser =[
 ]
 app.get('/schoolusers', (req, res) => {
     res.json(schoolUser)
-})
+}) 
+
 
 mongoose.connect(DBURI).then(()=>{
     console.log("Database connected successfully");

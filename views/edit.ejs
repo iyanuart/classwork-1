@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form action="/edit" method="post">
+        <div>
+            <label for="">First Name</label>
+            <input type="text" name="firstName" value= "<%= PrevRecord.firstName %>">
+        </div>
+          <div>
+            <label for="">Second Name</label>
+            <input type="text" name="lastName" value= "<%= PrevRecord.lastName %>">
+        </div>
+          <div>
+            <label for="">email</label>
+            <input type="text" name="email" value= "<%= PrevRecord.email %>">
+        </div>
+          <div>
+            <label for="">age</label>
+            <input type="number" name="age" value= "<%= PrevRecord.age %>">
+        </div>
+          <div>
+            <label for="">Phone number</label>
+            <input type="number" name="phoneNumber" value= "<%= PrevRecord.phoneNumber %>">
+        </div>
+            <div>
+            <label for="">Password</label>
+            <input type="text" name="password"  value= "<%= PrevRecord.password %>">
+        </div>
+        
+        <div>
+            <label for="">gender</label>
+            <select name="gender" id="" value= "<%= PrevRecord.gender %>">
+                <option value="thorr" disabled>see you not</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

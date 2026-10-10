@@ -14,7 +14,7 @@ const teacherSchema = new mongoose.Schema({
         trim: true
     },
     age: {
-        type: Number,
+        type: String,
         required: true,
         trim: true,
     },
@@ -26,9 +26,9 @@ const teacherSchema = new mongoose.Schema({
         trim: true,
     },
     phoneNumber:{
-        type: Number,
+        type: String,
         required: true,
-        min: 11
+        minlength: 11
     },
     password: {
         type: String,
@@ -61,7 +61,7 @@ const teacherSchema = new mongoose.Schema({
         required: true,
         enum: ["assistant lecturer", "lecturer I", "senior lecturer", "lecturer I", "professor"]
     },
-    gender:{enum:["male","female"], required:true},
+    gender:{ type: String, enum:["male","female"], required:true},
     verificationStatus: {
         type: Boolean,
         default: false

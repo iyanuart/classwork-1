@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        <div>
+            <label for="">First Name</label>
+            <input type="text" name="firstName">
+        </div>
+          <div>
+            <label for="">Second Name</label>
+            <input type="text" name="lastName">
+        </div>
+          <div>
+            <label for="">email</label>
+            <input type="text" name="email">
+        </div>
+          <div>
+            <label for="">age</label>
+            <input type="number" name="age">
+        </div>
+          <div>
+            <label for="">Phone number</label>
+            <input type="number" name="phoneNumber">
+        </div>
+            <div>
+            <label for="">Password</label>
+            <input type="text" name="password">
+        </div>
+        
+        <div>
+            <label for="">gender</label>
+            <select name="gender" id="">
+                <option value="thorr" disabled>see you not</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <form action="/dbuser" method="post">
+        <input type="text" name="searchinput" placeholder="search">
+        <button type="submit">search</button>
+    </form>
+</body>
+</html>

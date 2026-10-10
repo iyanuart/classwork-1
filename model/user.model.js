@@ -26,16 +26,15 @@ const userSchema = new mongoose.Schema({
         trim: true,
     },
     phoneNumber:{
-        type: Number,
+        type: String,
         required: true,
-        min: 11
+        
     },
     password: {
         type: String,
         required: true,
-        minlength: 8
     },
-    gender:{enum:["male","female"], required:true},
+    gender:{type: String, enum:["male","female"], required:true},
     verificationStatus: {
         type: Boolean,
         default: false
