@@ -1,9 +1,11 @@
 const express = require ("express");
-const { signin, signup, allUser,  register, dbuser } = require("../controllers/autentication.controller");
+const { signin, signup, allUser,  register, dbuser, lognForm, login } = require("../controllers/autentication.controller");
 const { records, deletebyid, editForm, edit, results } = require("../controllers/dashboard.controller");
 const router = express.Router();
 
 router.get('/signin',signin )  
+router.post('/login', login)
+router.get('/lognform', lognForm)
 router.get('/signup', signup) 
 router.get("/allUser", allUser) 
 router.post("/dbuser", dbuser) 

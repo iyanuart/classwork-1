@@ -3,7 +3,7 @@ const app = express();
 const mongoose=require('mongoose');
 const userModel = require('./model/user.model');
 const teacherModel = require('./model/teacher.model');
-const { signin, signup, allUser, dbUser, register } = require('./controllers/autentication.controller');
+const { signin, signup, allUser, dbuser, register } = require('./controllers/autentication.controller');
 const { records, deletebyid, editForm, results, edit } = require('./controllers/dashboard.controller');
 require("dotenv").config();
 const userRouter = require("./router/auth.router");
@@ -15,7 +15,7 @@ const DBURI = process.env.mongoDB_URI;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/auth", userRouter)
+app.use('/auth', userRouter);
 
 
 const schoolUser =[

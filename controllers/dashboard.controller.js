@@ -1,5 +1,6 @@
 const teacherModel = require("../model/teacher.model");
 const userModel = require("../model/user.model");
+const bcrypt = require("bcryptjs")
 
  const records =async (req,res)=>{
       try{
@@ -16,7 +17,7 @@ const deletebyid =  async (req,res)=>{
         console.log(req.params.id)
         const id= req.params.id;
         await userModel.findByIdAndDelete(id);
-        res.redirect("/records")
+        res.redirect("/auth/records")
     }
     catch(err){
  
@@ -39,7 +40,7 @@ const editForm= async (req,res)=>
 {
     try{
         const PrevRecord=await userModel.findOne({
-            email: "alexander"
+            email: "sloane"
         })
         res.render("edit", {PrevRecord});
     }
@@ -49,9 +50,11 @@ const editForm= async (req,res)=>
 }
 const edit= async (req,res) => {
     console.log(req.body)
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const {password, ...rest} = req.body;
     try{ 
-        await userModel.findOneAndUpdate({email: req.body.email}, req.body)
-        res.redirect('/allUser');
+        await userModel.findOneAndUpdate({email: req.body.email}, {password: hashedPassword, ...rest})
+        res.redirect('/auth/allUser');
     }
     catch(err){
         console.log(err)
